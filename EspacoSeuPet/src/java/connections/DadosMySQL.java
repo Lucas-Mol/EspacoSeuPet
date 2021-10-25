@@ -1,5 +1,5 @@
 /*
- * Classe DadosDataBase
+ * Classe DadosMySQL
  * Função: Classe designada para criação das constante que serão usadas para conexão com o Banco de Dados - MySQL
  *
  */
@@ -9,9 +9,11 @@ package connections;
  *
  * @author Lucas Mol
  */
-public class DadosDataBase {
+public class DadosMySQL {
     
-    //---------ALTERE OS DADOS CORRESPONDENTES AO SEU MYSQL AQUI---------------------------//
+    //-------------------------------------------------------------------------------------
+    //---------ALTERE OS DADOS CORRESPONDENTES AO SEU MYSQL AQUI---------------------------
+    //-------------------------------------------------------------------------------------
     private static final String DRIVER = "com.mysql.cj.jdbc.Driver";
     private static final String URL = "jdbc:mysql://localhost:3306/db_veterinario?autoReconnect=true&useSSL=false";
     private static final String USER = "root";

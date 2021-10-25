@@ -1,4 +1,9 @@
-
+/*
+ * Classe ControlesAgendamento
+ * Função: Classe designada para gerenciamento das ações com o MySQL, 
+ * com métodos de inserir, lista, buscar, atualizar e deletar.
+ *
+ */
 package models;
 
 import beanclasses.DFViewBean;
@@ -16,8 +21,10 @@ import java.sql.ResultSet;
  */
 public class ControlesAgendamento {
     
+    //Declaração da variável usada para Conexão
     private Connection connection;
 
+    //Getter e Setter
     public Connection getConnection() {
         return connection;
     }
@@ -26,14 +33,21 @@ public class ControlesAgendamento {
         this.connection = connection;
     }
     
+    //método para inserir dados no MySQL
     public void inserir(Agendamento agend){
+        
+        //String em SQL para inserir dados na tabela "tb_agendamento" em todas os atributos. 
+        //OBS: usado STR_TO_DATE para transformar a String de "dataAgendamento" em tipo Date,
+        //apontando os devidos lugares de dia, mês, ano, hora e minuto
         String sql = "INSERT INTO tb_agendamento (dataAgendamento, nomeAnimal, tipoAnimal, nomeDono, telefone, observacoes) VALUES (STR_TO_DATE(?,'%d/%m/%Y %H:%i'), ?, ?, ?, ?, ?)";
         
-        Connection conn = ConnectionDataBase.conectar(); //conectando
-        PreparedStatement stmt = null;
+        Connection conn = ConnectionDataBase.conectar(); //iniciando conexão
+        PreparedStatement stmt = null;//iniciando a variável do PreparedStatement
         
         try {
-                       
+            
+            //variável do PreparedStatement capturando a String de SQL
+            //e atribuindo os valores da variável tipo Agendamento
             stmt = conn.prepareStatement(sql);
             stmt.setString(1, agend.getDataAgendamento());
             stmt.setString(2, agend.getNomeAnimal());
@@ -42,19 +56,20 @@ public class ControlesAgendamento {
             stmt.setString(5, agend.getTelefone());
             stmt.setString(6, agend.getObservacoes());
             
-            stmt.execute();
-            DFViewBean dfvb = new DFViewBean();
-            dfvb.mensagemAgendar();
+            stmt.execute();//execução da query no MySQL
+            DFViewBean dfvb = new DFViewBean();//declaração do objeto da Classe DFViewBean, responsável por mostrar blocos de mensagens utilizando o framework do PrimeFaces
+            dfvb.mensagemAgendar();//utilização do método de chamar um bloco de mensagem de Agendamento concluído
             
             
         } catch (SQLException e) {
             System.out.println("Erro ao salvar no banco de dados. Erro: "+ e);
         }
         finally{
-            ConnectionDataBase.desconectar(conn, stmt);
+            ConnectionDataBase.desconectar(conn, stmt);//utilização do método de desconectar com o MySQL
         }
     }
     
+    //método para listar e retorna os dados do MySQL
     public List<Agendamento> lista(){
         
         String sql = "SELECT * FROM tb_agendamento";
