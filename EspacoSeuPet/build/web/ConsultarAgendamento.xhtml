@@ -16,8 +16,8 @@
                          scrollable="true" scrollHeight="500">
                 <f:facet name="header">
                     
-                    <div class="products-table-header" style="justify-content: space-between">
-                        <span style="margin-right: 77%; font-size: large;">Agendamentos</span>
+                    <div class="products-table-header" align="right">
+                        <span style="margin-right: 78%; width: 250px">Agendamentos</span>
                         <span class="filter-container ui-input-icon-left" style="margin-right: 3%">
                             <i class="pi pi-search"></i>
                             <p:inputText value="#{agendamentoBean.varBusca}" autocomplete="off" placeholder="Buscar por Animal">
@@ -65,8 +65,8 @@
         </p:fieldset>
         
         <p:dialog header="Agendamento de #{agendamentoBean.agend.nomeAnimal}" showEffect="fade" modal="true"
-                  widgetVar="manageProductDialog" responsive="true" onHide="#{agendamentoBean.limparVarAgend()}">
-           <p:panelGrid columns="2" style="margin: 0 auto; margin-top: 20px; width: 35vw">
+        widgetVar="manageProductDialog" responsive="true">
+           <p:panelGrid columns="2" style="margin: 0 auto; margin-top: 20px; width: 35vw" >
                 <p:outputLabel value="Código do Agendamento"/>
                 <p:inputText value="#{agendamentoBean.agend.id_tb_agendamento}" disabled="true"/>
                 <p:outputLabel value="Data e Hora"/>

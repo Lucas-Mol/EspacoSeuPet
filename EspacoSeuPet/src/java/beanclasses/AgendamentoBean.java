@@ -24,9 +24,7 @@ public class AgendamentoBean {
     private String varBusca;
 
    
-    public void limparVarAgend(){
-        agend = new Agendamento();
-    }
+    
     
     public void inserir(){
         cAgend.inserir(agend);

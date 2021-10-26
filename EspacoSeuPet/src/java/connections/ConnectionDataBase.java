@@ -1,8 +1,3 @@
-/*
- * Classe ConnectionDataBase
- * Função: Classe designada para os métodos de conexão com o Banco de Dados - MySQL
- *
- */
 package connections;
 
 import java.sql.Connection;
@@ -17,16 +12,11 @@ import java.sql.ResultSet;
  */
 public class ConnectionDataBase {
     
-    //Declaração do Objeto para capturar os dados do DataBase - MySQL
-    DadosMySQL dadosDataBase = new DadosMySQL();
+    private static final String DRIVER = "com.mysql.cj.jdbc.Driver";
+    private static final String URL = "jdbc:mysql://localhost:3306/db_veterinario?autoReconnect=true&useSSL=false";
+    private static final String USER = "root";
+    private static final String PASS = "1234";
     
-    //Declaração das constantes para iniciar conexão
-    private static final String DRIVER = DadosMySQL.getDRIVER();
-    private static final String URL = DadosMySQL.getURL();
-    private static final String USER = DadosMySQL.getUSER();
-    private static final String PASS = DadosMySQL.getPASS();
-    
-    //método para iniciar e retornar conexão
     public static Connection conectar(){
         try{
             Class.forName(DRIVER);
@@ -37,7 +27,6 @@ public class ConnectionDataBase {
         }
     }
     
-    //método para desconectar
     public static void desconectar(Connection conn){
         if(conn != null){
             try{
@@ -48,7 +37,6 @@ public class ConnectionDataBase {
         }
     }
     
-    //método para desconectar com o PreparedStatement
     public static void desconectar(Connection conn, PreparedStatement stmt){
         if (stmt != null){
             try{
@@ -60,7 +48,6 @@ public class ConnectionDataBase {
         desconectar(conn);
     }
     
-    //método para desconectar com o PreparedStatement e o ResultSet
     public static void desconectar(Connection conn, PreparedStatement stmt, ResultSet rs){
         if(rs != null){
             try{
