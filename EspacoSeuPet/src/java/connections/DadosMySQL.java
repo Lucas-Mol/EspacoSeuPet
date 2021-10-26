@@ -1,6 +1,6 @@
 /*
  * Classe DadosMySQL
- * Função: classe designada para as constantes qeu serão alteradas pelo usuário
+ * Função: classe designada para as constantes que serão alteradas pelo usuário
  */
 package connections;
 

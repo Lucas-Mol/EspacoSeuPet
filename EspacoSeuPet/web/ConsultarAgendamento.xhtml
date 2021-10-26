@@ -85,11 +85,13 @@
                 <p:outputLabel value="Observações"/>
                 <p:inputTextarea value="#{agendamentoBean.agend.observacoes}"/>
                 <p:commandButton icon="pi pi-fw pi-pencil" value=" " update="@form" 
-                                 action="#{agendamentoBean.atualizar()}"
+                                 actionListener="#{agendamentoBean.atualizar()}"
+                                 action="#{agendamentoBean.listarAgendamento()}"
                                  style=" padding: 10px;">
                 </p:commandButton>
                 <p:commandButton id="btnDeletar" value=" " update="@form" icon="pi pi-fw pi-trash"
-                                 action="#{agendamentoBean.deletar()}"
+                                 actionListener="#{agendamentoBean.deletar()}"
+                                 action="#{agendamentoBean.listarAgendamento()}"
                                  style="background-color: crimson; padding: 10px;">
                     <p:confirm type="popup" header="Confirmação" message="Você tem certeza que deseja remover esse agendamento?" icon="pi pi-exclamation-triangle"/>
                     <p:confirmPopup global="true">
