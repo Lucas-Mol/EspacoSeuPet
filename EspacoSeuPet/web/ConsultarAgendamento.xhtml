@@ -9,6 +9,7 @@
     
     <ui:define name="mainTemplate"></ui:define>
     <h:form id="formConsultarAgendamento">
+        <p:autoUpdate on="#{agendamentoBean.listarAgendamento()}"/>
         <p:fieldset>
             
             
@@ -24,8 +25,7 @@
                                 <p:ajax event="keyup" update="tableListaAgendamento" listener="#{agendamentoBean.buscar(agendamentoBean.varBusca)}"/>
                             </p:inputText>
                         </span>
-                    </div>
-                    
+                    </div> 
                 </f:facet>
                 <p:column headerText="Código" sortBy="#{agendamento.id_tb_agendamento}" style="text-align: center; width: 78px">
                     <p:outputLabel value="#{agendamento.id_tb_agendamento}"></p:outputLabel>
@@ -76,7 +76,7 @@
                 <p:outputLabel value="Tipo do Animalzinho"/>
                 <p:selectOneMenu value="#{agendamentoBean.agend.tipoAnimal}" style="width: 62%;"
                                       filter="true" filterMatchMode="startsWith">
-                    <f:selectItems value="#{animaisBean.an.arrayTipoAnimal}"/>
+                    <f:selectItems value="#{animaisBean.animais.arrayTipoAnimal}"/>
                 </p:selectOneMenu>
                 <p:outputLabel value="Nome do Dono"/>
                 <p:inputText value="#{agendamentoBean.agend.nomeDono}"/>
@@ -86,19 +86,22 @@
                 <p:inputTextarea value="#{agendamentoBean.agend.observacoes}"/>
                 <p:commandButton icon="pi pi-fw pi-pencil" value=" " update="@form" 
                                  action="#{agendamentoBean.atualizar()}"
-                                 style=" padding: 10px;"/>
+                                 style=" padding: 10px;">
+                </p:commandButton>
                 <p:commandButton id="btnDeletar" value=" " update="@form" icon="pi pi-fw pi-trash"
                                  action="#{agendamentoBean.deletar()}"
                                  style="background-color: crimson; padding: 10px;">
                     <p:confirm type="popup" header="Confirmação" message="Você tem certeza que deseja remover esse agendamento?" icon="pi pi-exclamation-triangle"/>
                     <p:confirmPopup global="true">
-                        <p:commandButton value="Yes" type="button" style="background-color: crimson" styleClass="ui-confirm-popup-yes"/>
+                        <p:commandButton value="Yes" type="button" style="background-color: crimson" styleClass="ui-confirm-popup-yes">
+                        </p:commandButton>
                         <p:commandButton value="No" type="button" styleClass="ui-confirm-popup-no ui-button-flat" />
                     </p:confirmPopup>
                 </p:commandButton>
 
                 
-            </p:panelGrid>       
+            </p:panelGrid> 
+            
     </p:dialog>
     </h:form>
     

@@ -1,4 +1,8 @@
-
+/*
+ * Classe Agendamento
+ * Função: classe designada para a criação dos atributos de agendamentos em geral
+ *
+ */
 package models;
 
 import java.text.DateFormat;
@@ -11,10 +15,14 @@ import java.text.SimpleDateFormat;
  */
 public class Agendamento {
     
+    //Declaração dos dados utilizados para gerenciar o Agendamento
     private int id_tb_agendamento;
     private String dataAgendamento;
+    //variável para formatar a data vinda do DataBase no localização Brasileira
     private DateFormat dataAgendamentoFormatada = new SimpleDateFormat("dd/MM/yyyy HH:mm");
+    //varíavel para receber a String de data para filtragem em acréscimo e decréscimo
     private String dataAgendamentoStringOrdenada;
+    //variável para formatar a data vinda do DataBase na ordem para listagem
     private DateFormat dataAgendamentoDFormatOrdenada = new SimpleDateFormat("yyyy/MM/dd HH:mm");
     private String nomeAnimal;
     private String tipoAnimal;
@@ -23,7 +31,7 @@ public class Agendamento {
     private String observacoes;
     
 
-
+//Getter e Setters
     public int getId_tb_agendamento() {
         return id_tb_agendamento;
     }
@@ -40,7 +48,6 @@ public class Agendamento {
         this.dataAgendamento = dataAgendamento;
     }
     
-    //-----------------------
     public String getDataAgendamentoStringOrdenada() {
         return dataAgendamentoStringOrdenada;
     }
@@ -56,9 +63,7 @@ public class Agendamento {
     public void setDataAgendamentoDFormatOrdenada(DateFormat dataAgendamentoDFormatOrdenada) {
         this.dataAgendamentoDFormatOrdenada = dataAgendamentoDFormatOrdenada;
     }
-    //---------------
-
-
+ 
     public String getNomeAnimal() {
         return nomeAnimal;
     }

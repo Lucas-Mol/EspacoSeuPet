@@ -22,7 +22,7 @@
                                  filter="true" filterMatchMode="startsWith" required="true"
                                  style=" width: 98%">
                     <f:validateLength minimum="2"/>
-                    <f:selectItems id="tipoAnimalSelecao" value="#{animaisBean.an.arrayTipoAnimal}"/>
+                    <f:selectItems id="tipoAnimalSelecao" value="#{animaisBean.animais.arrayTipoAnimal}"/>
                 </p:selectOneMenu>
                 <p:outputLabel value="Data e Hora: " for="dataAgendamento"/>
                 <p:inputMask id="dataAgendamento" value="#{agendamentoBean.agend.dataAgendamento}" mask="99/99/9999 99:99" required="true" autocomplete="off" size="25"/>
