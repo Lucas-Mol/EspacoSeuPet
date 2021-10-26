@@ -1,7 +1,7 @@
 # Espaço Seu Pet
 Um Projeto de Aplicação Web de Agendamento de Consultas veterinárias.
 ## Intro
-O **Espaço Seu Pet** é um projeto em Java Web criado para implementação de um sistema simples de Agendamento de Consultas Veterinárias com as funções básicas de CRUD (_Create,Read,Update,Delete_), utilizando o framework PrimeFaces e o banco de dos MySQL.
+O **Espaço Seu Pet** é um projeto em Java Web criado para implementação de um sistema simples de Agendamento de Consultas Veterinárias com as funções básicas de CRUD (_Create,Read,Update,Delete_), utilizando o framework PrimeFaces e o banco de dados MySQL.
 ## Instruções Básicas
 Segue o passo a passo para utilização do projeto:
 1. Em seu MySQL Workbench, clique em 'abrir um arquivo de script de SQL na aba QUERY' e abra o _.sql_ localizado em "_...EspacoSeuPet\sql_" nomeado de "_db_veterinariaseupet.sql_".
